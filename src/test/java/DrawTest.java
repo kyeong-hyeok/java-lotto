@@ -21,4 +21,12 @@ class DrawTest {
         int money = sameNumberCount.receiveMoney();
         assertThat(money).isEqualTo(50000);
     }
+
+    @DisplayName("5개 일치할 경우 장당 1500000원을 받는다.")
+    @Test
+    void five_numbers_same() {
+        SameNumberCount sameNumberCount = new SameNumberCount(0, 0, 1, 0, 0);
+        int money = sameNumberCount.receiveMoney();
+        assertThat(money).isEqualTo(1500000);
+    }
 }
