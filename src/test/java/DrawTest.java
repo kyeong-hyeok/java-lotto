@@ -41,6 +41,14 @@ class DrawTest {
         assertEquals(lotto.getLottoNums().stream().filter(number -> number.equals(winningNumbers.getBonusNumber())).count(), 1);
     }
 
+    @DisplayName("로또 번호와 당첨 번호가 6개가 일치한다")
+    @Test
+    void six_numbers_same() {
+        Lotto lotto = new Lotto(List.of(1,2,3,4,5,6));
+        WinningNumbers winningNumbers = new WinningNumbers(List.of(1,2,3,4,5,6), 7);
+        assertEquals(lotto.getLottoNums().stream().filter(winningNumbers.getNumbers()::contains).count(), 6);
+    }
+
     @DisplayName("3개 일치할 경우 장당 5000원을 받는다")
     @Test
     void three_numbers_same_get_money() {
