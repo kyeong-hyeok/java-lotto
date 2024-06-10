@@ -20,6 +20,14 @@ class LottoTest {
         assertThat(lotto.getLottoNums()).allMatch(num -> num >= 1 && num <= 45);
     }
 
+    @DisplayName("로또 1장의 가격은 1000원이다.")
+    @Test
+    void lotto_price() {
+        List<Integer> lottos = intRangeProvider();
+        Lotto lotto = new Lotto(lottos);
+        assertThat(lotto.getPrice()).isEqualTo(1000);
+    }
+
     static List<Integer> intRangeProvider() {
         return IntStream.rangeClosed(1, 45).boxed().collect(Collectors.toList());
     }
