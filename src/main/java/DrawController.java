@@ -14,7 +14,8 @@ public class DrawController {
     public void run() {
         int lottoCount = inputView.inputCount();
         List<Lotto> lottoList = buyLotto(lottoCount);
-
+        List<Integer> winningNumbers = inputView.inputWinningNumbers();
+        Integer bonusNumber = inputView.inputBonusNumber();
     }
 
     private List<Lotto> buyLotto(int lottoCount) {
