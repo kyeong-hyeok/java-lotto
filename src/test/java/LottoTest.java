@@ -29,7 +29,7 @@ class LottoTest {
         assertThat(lotto.getPrice()).isEqualTo(1000);
     }
 
-    @DisplayName("당첨 번호는 6개이다. (1~45)")
+    @DisplayName("로또 번호의 개수는 6개이다. (1~45)")
     @Test
     void lotto_num_size() {
         List<Integer> lottos = intRangeProvider();
