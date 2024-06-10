@@ -29,4 +29,12 @@ class DrawTest {
         int money = sameNumberCount.receiveMoney();
         assertThat(money).isEqualTo(1500000);
     }
+
+    @DisplayName("5개 일치할 경우(보너스 볼 일치) 장당 30000000원을 받는다")
+    @Test
+    void five_bonus_numbers_same() {
+        SameNumberCount sameNumberCount = new SameNumberCount(0, 0, 0, 1, 0);
+        int money = sameNumberCount.receiveMoney();
+        assertThat(money).isEqualTo(30000000);
+    }
 }
