@@ -21,4 +21,8 @@ public class Winning {
                 + WinningPrice.FIVE_BONUS.getPrice() * fiveBonusWinningCnt
                 + WinningPrice.SIX.getPrice() * sixWinningCnt;
     }
+
+    public double calculateTotalRate(int cnt) {
+        return Math.round((double)receiveWinningMoney() / (cnt * 1000) * 100.0) / 100.0;
+    }
 }

@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
@@ -90,8 +92,11 @@ class DrawTest {
     }
 
     @DisplayName("수익률은 당첨 금액 / 구매한 금액을 소수점 두자리까지 구한다")
-    @Test
-    void total_return_rate() {
-
+    @ValueSource(ints = 3)
+    @ParameterizedTest
+    void total_return_rate(final int cnt) {
+        Winning winning = new Winning(1, 0, 0, 0, 0);
+        double totalReturn = winning.calculateTotalRate(cnt);
+        assertThat(totalReturn).isEqualTo(1.67);
     }
 }
