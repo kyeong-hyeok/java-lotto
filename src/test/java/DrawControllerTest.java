@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DrawTest {
+class DrawControllerTest {
 
     @DisplayName("로또 번호와 당첨 번호가 3개가 일치한다")
     @Test
