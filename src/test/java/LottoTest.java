@@ -45,6 +45,14 @@ class LottoTest {
         assertThat(winningNumbers.getNumbers()).allMatch(num -> num >= 1 && num <= 45);
     }
 
+    @DisplayName("당첨 번호의 개수는 6개이다. (1~45)")
+    @Test
+    void winning_numbers_size() {
+        List<Integer> winningNums = intRangeProvider();
+        WinningNumbers winningNumbers = new WinningNumbers(winningNums);
+        assertThat(winningNumbers.getNumbers()).hasSize(6);
+    }
+
     static List<Integer> intRangeProvider() {
         List<Integer> numList = IntStream.rangeClosed(1, 45).boxed().collect(Collectors.toList());
         Collections.shuffle(numList);
