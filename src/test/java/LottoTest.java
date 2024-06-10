@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -28,8 +29,18 @@ class LottoTest {
         assertThat(lotto.getPrice()).isEqualTo(1000);
     }
 
+    @DisplayName("당첨 번호는 6개이다. (1~45)")
+    @Test
+    void lotto_num_size() {
+        List<Integer> lottos = intRangeProvider();
+        Lotto lotto = new Lotto(lottos);
+        assertThat(lotto.getLottoNums()).hasSize(6);
+    }
+
     static List<Integer> intRangeProvider() {
-        return IntStream.rangeClosed(1, 45).boxed().collect(Collectors.toList());
+        List<Integer> numList = IntStream.rangeClosed(1, 45).boxed().collect(Collectors.toList());
+        Collections.shuffle(numList);
+        return numList.subList(0, 6);
     }
 
 }
