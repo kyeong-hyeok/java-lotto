@@ -58,7 +58,7 @@ class LottoTest {
         assertThat(winningNumbers.getBonusNumber()).isBetween(1, 45);
     }
 
-    private Integer getOneNumber() {
+    static Integer getOneNumber() {
         List<Integer> numList = IntStream.rangeClosed(1, 45).boxed().collect(Collectors.toList());
         Collections.shuffle(numList);
         Integer bonusNumber = numList.get(0);
