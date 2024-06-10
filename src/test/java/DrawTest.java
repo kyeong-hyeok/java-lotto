@@ -37,4 +37,12 @@ class DrawTest {
         int money = sameNumberCount.receiveMoney();
         assertThat(money).isEqualTo(30000000);
     }
+
+    @DisplayName("6개 일치할 경우(보너스 볼 제외) 장당 2000000000원을 받는다")
+    @Test
+    void six_numbers_same() {
+        SameNumberCount sameNumberCount = new SameNumberCount(0, 0, 0, 0, 1);
+        int money = sameNumberCount.receiveMoney();
+        assertThat(money).isEqualTo(2000000000);
+    }
 }
