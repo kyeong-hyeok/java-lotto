@@ -37,10 +37,20 @@ class LottoTest {
         assertThat(lotto.getLottoNums()).hasSize(6);
     }
 
+    @DisplayName("당첨 번호는 1~45까지의 숫자로 이루어져 있다")
+    @Test
+    void winning_numbers_definition() {
+        List<Integer> winningNums = intRangeProvider();
+        WinningNumbers winningNumbers = new WinningNumbers(winningNums);
+        assertThat(winningNumbers.getNumbers()).allMatch(num -> num >= 1 && num <= 45);
+    }
+
     static List<Integer> intRangeProvider() {
         List<Integer> numList = IntStream.rangeClosed(1, 45).boxed().collect(Collectors.toList());
         Collections.shuffle(numList);
-        return numList.subList(0, 6);
+        List<Integer> subList = numList.subList(0, 6);
+        Collections.sort(subList);
+        return subList;
     }
 
 }
