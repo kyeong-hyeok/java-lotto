@@ -36,9 +36,7 @@ public class LottoGame {
 //    }
 
     public static int match(Lotto userLotto, WinningLotto winningLotto) {
-        int matchCount = userLotto.match(winningLotto.getLotto());
-        boolean matchBonus = userLotto.contains(winningLotto.getBonusNumber());
-        return rank(matchCount, matchBonus);
+        return winningLotto.rank(userLotto);
     }
 
     // first code
@@ -56,16 +54,17 @@ public class LottoGame {
 //        return (int) userLotto.getLottoNumbers().stream().filter(winningLotto::contains).count();
 //    }
 
-    private static int rank(int matchCount, boolean matchBonus) {
-        if (matchCount == 6) {
-            return 1;
-        }
-        if (matchCount == 5 && matchBonus) {
-            return 2;
-        }
-        if (matchCount > 2) {
-            return 6 - matchCount + 2;
-        }
-        return 0;
-    }
+    // refactoring 4 code - WinningLotto로 rank 메서드 위치 변경
+//    private static int rank(int matchCount, boolean matchBonus) {
+//        if (matchCount == 6) {
+//            return 1;
+//        }
+//        if (matchCount == 5 && matchBonus) {
+//            return 2;
+//        }
+//        if (matchCount > 2) {
+//            return 6 - matchCount + 2;
+//        }
+//        return 0;
+//    }
 }
