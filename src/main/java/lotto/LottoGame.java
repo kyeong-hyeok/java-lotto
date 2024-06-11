@@ -28,9 +28,16 @@ public class LottoGame {
 //        return rank(matchCount, matchBonus);
 //    }
 
-    public static int match(Lotto userLotto, Lotto winningLotto, LottoNumber bonusNumber) {
-        int matchCount = userLotto.match(winningLotto);
-        boolean matchBonus = userLotto.contains(bonusNumber);
+    // refactoring 3 code - match 메서드의 매개변수를 줄이기 위해 WinningLotto 생성
+//    public static int match(Lotto userLotto, Lotto winningLotto, LottoNumber bonusNumber) {
+//        int matchCount = userLotto.match(winningLotto);
+//        boolean matchBonus = userLotto.contains(bonusNumber);
+//        return rank(matchCount, matchBonus);
+//    }
+
+    public static int match(Lotto userLotto, WinningLotto winningLotto) {
+        int matchCount = userLotto.match(winningLotto.getLotto());
+        boolean matchBonus = userLotto.contains(winningLotto.getBonusNumber());
         return rank(matchCount, matchBonus);
     }
 
