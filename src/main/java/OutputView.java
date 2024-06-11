@@ -7,4 +7,12 @@ public class OutputView {
         String result = "[" + String.join(", ", numbers.stream().map(Object::toString).collect(Collectors.toList())) + "]";
         System.out.println(result);
     }
+
+    public void printOutPut() {
+        System.out.println();
+        System.out.println("당첨 통계");
+        System.out.println("----------");
+
+
+    }
 }
