@@ -10,7 +10,7 @@ public class Lotto {
 
     public Lotto(int ... numbers) {
         if (numbers.length != 6) {
-            throw new IllegalArgumentException("로또는 1부터 45까지의 숫자만 가능합니다.");
+            throw new IllegalArgumentException("로또는 6개의 숫자만 존재 가능합니다.");
         }
         this.lottoNumbers = Arrays.stream(numbers).mapToObj(LottoNumber::new).collect(Collectors.toSet());
     }
