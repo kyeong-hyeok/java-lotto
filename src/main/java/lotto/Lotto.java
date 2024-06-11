@@ -22,4 +22,8 @@ public class Lotto {
     public boolean contains(LottoNumber lottoNumber) {
         return lottoNumbers.contains(lottoNumber);
     }
+    int match(Lotto winningLotto) {
+        return (int) lottoNumbers.stream().filter(winningLotto::contains).count();
+    }
+
 }
